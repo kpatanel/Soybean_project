@@ -1,0 +1,15 @@
+setwd("/Users/kierapatanella/Desktop/Soybean_project")
+biocLite("affy")
+biocLite("oligo")
+biocLite("limma")
+library("affy")
+#double check directory
+getwd()
+data<-ReadAffy(filenames="Rsmv1_inoculated.CEL", "Rsmv1_mock.CEL", "Ssmv1_inoculated.CEL", "Ssmv1_mock.CEL")
+library("oligo")
+library("limma")
+biocLite("gcrma")
+library("gcrma")
+eset<-gcrma(data)
+#This should give you the file of the gcrma normalized data as a text file:
+write.exprs(eset,file="2nd_gcrma_soybeans_cnt.txt")
