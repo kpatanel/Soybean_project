@@ -1,3 +1,6 @@
+#Kiera Patanella, Programming I Project
+"""Objective: to observe differential expression among various cultivars of the soybean Glycine max, some of which 
+are inoculated with the soybean mosaic virus"""
 #Step one: make a probe-gene dictionary
 import sys
 gse_file=sys.argv[1]
@@ -17,7 +20,7 @@ with open(gse_file,'r') as gs:
                     gene_inten[gkey]=cults
                     break
 
-
+#Step Two: Iterate through dictionary with f string literal to  show genes of interest and their expression across cultivars
 with open('project_results.csv','w') as pr:
     header='Uniref_gene' + ',' + 'Rsmv1_inoculated' + ',' + 'Rsmv1_mock' + ',' + 'Ssmv1_inoculated' + ',' + 'Ssmv1_mock' + '\n'
     pr.write(header)
@@ -26,4 +29,4 @@ with open('project_results.csv','w') as pr:
         #pr.write(header + '\n' + out)
         pr.write(out)
 
-#for key in dictionary, make a for loop to print out each of the intensities.
+
